@@ -1,4 +1,4 @@
-# Run all your code within container
+# Run commands without installing them
 
 Simple way to run any executedble without installing it on your host machine.
 
@@ -25,18 +25,30 @@ Docker Engine
 Clone this repository.
 
 ```
-TBD
+git clone git@github.com:galileo/docker-binaries
 ```
 
 Add `bin` directory to your executables.
 
+You need to modify your `PATH` variable. So open `.bash_rc` or `.bash_profile` or any other file where you are storing your variables and add this entry
+
 ```
-TBD
+PATH=$PATH:{path_to_this_repository}/bin
 ```
 
 > NOTE: For osx users there is a problem with `php`. As OSX comes with preinstalled version of `php` the `php` will not work. There is alias command for you you can call `phpx`.
 
+> NOTE 2: There are some limitations with the `Docker for mac` for networking features.
+
+> NOTE 3: Please look into our [Docker for mac](../../tree/docker-for-mac) branch  for more information.
+
 # Usage
+
+## Prerequisites
+
+You need to unistall your existing installations of commands that we provide you with this repo. Or you need to change the names for those command if you want to use both.
+
+## Running commands
 
 You can now run each of our commands.
 
