@@ -18,6 +18,7 @@ jobs:
           command: |
             pwd
             ls -al
+            cp bin/* /usr/local/bin
             sh bin/php -v
             echo 'Eager lock'
             DB_PHP_VERSION=5.6 php -v
