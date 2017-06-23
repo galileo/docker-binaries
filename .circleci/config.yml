@@ -11,14 +11,15 @@ jobs:
       - run:
           name: Setup executable PATH
           command: |
-            echo 'export PATH=${PWD}/bin:$PATH' >> $BASH_ENV
+            echo 'export PATH=/app/bin:$PATH' >> $BASH_ENV
             printenv
       - run:
           name: Test PHP commands
           command: |
             pwd
             ls -al
-            ./bin/php -v
+            sh bin/php -v
+            echo 'Eager lock'
             DB_PHP_VERSION=5.6 php -v
             DB_PHP_VERSION=7.0 php -v
             DB_PHP_VERSION=7.1 php -v
