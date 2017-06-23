@@ -1,3 +1,17 @@
+There are some limitations in `networking` for `Docker fo mac` so we can not utilize full functionality of `--net="host"` command on top of that we are exporting some of the most common ports from container to the host machine
+
+- 80
+- 443
+- 3000
+- 3306
+- 3307
+- 3308
+- 8000
+- 8001
+- 8002
+- 8080
+- 9000
+
 # Run all your code within container
 
 # Supported 
