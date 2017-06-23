@@ -18,6 +18,7 @@ Docker Engine
 
 - `node`
 - `npm`
+- `yarn`
 - `php`
 
 # Installation
@@ -53,7 +54,7 @@ You need to unistall your existing installations of commands that we provide you
 You can now run each of our commands.
 
 ```bash
-npm -v && node -v && php -v
+npm -v && node -v && yarn -v && php -v
 ```
 
 # Version swtich
