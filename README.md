@@ -1,6 +1,20 @@
 # Run all your code within container
 
+Simple way to run any executedble without installing it on your host machine.
+
+# Requirements
+
+Docker Engine
+
 # Supported 
+
+## Supported operating systems
+
+- all unixes with kernel over [`master` branch]
+- Docker for mac ( [`docker-for-mac`](../../tree/docker-for-mac) branch )
+- Docker for mac edge [`docker-for-mac-edge` branch]
+
+## Supported commands
 
 - `node`
 - `npm`
