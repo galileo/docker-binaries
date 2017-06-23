@@ -18,7 +18,9 @@ jobs:
           command: |
             cd /app/bin
             ls -al
-            ./php -v
+            sh php -v
+            cd ../
+            sh bin/php -v
             DB_PHP_VERSION=5.6 ./php -v
             DB_PHP_VERSION=7.0 ./php -v
             DB_PHP_VERSION=7.1 ./php -v
