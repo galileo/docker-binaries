@@ -9,6 +9,11 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
+          name: Setup executable PATH
+          command: |
+            echo 'export PATH=${PWD}/bin:$PATH' >> $BASH_ENV
+            printenv
+      - run:
           name: Test PHP commands
           command: |
             pwd
