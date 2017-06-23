@@ -9,13 +9,11 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: Setup executable PATH
-          command: |
-            echo 'export PATH=${PWD}/bin:$PATH' >> $BASH_ENV
-      - run:
           name: Test PHP commands
           command: |
-            php -v
+            pwd
+            ls -al
+            ./bin/php -v
             DB_PHP_VERSION=5.6 php -v
             DB_PHP_VERSION=7.0 php -v
             DB_PHP_VERSION=7.1 php -v
