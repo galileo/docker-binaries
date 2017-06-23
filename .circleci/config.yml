@@ -16,11 +16,7 @@ jobs:
       - run:
           name: Test PHP commands
           command: |
-            pwd
-            ls -al
-            cp bin/* /usr/local/bin
-            sh bin/php -v
-            echo 'Eager lock'
+            cd bin
             DB_PHP_VERSION=5.6 php -v
             DB_PHP_VERSION=7.0 php -v
             DB_PHP_VERSION=7.1 php -v
