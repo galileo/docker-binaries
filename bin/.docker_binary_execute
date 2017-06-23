@@ -1,0 +1,17 @@
+#!/bin/bash
+
+IMAGE_TAG_VERSION=${IMAGE_TAG_VERSION:=latest}
+
+docker run -it \
+ -v ${HOME}:${HOME} \
+ -v ${HOME}:/root \
+ -v ${PWD}:${PWD} \
+ -v /tmp/:/tmp/ \
+ -w ${PWD} \
+ --net=host \
+ --sig-proxy=true \
+ --pid=host \
+ --rm \
+ ${IMAGE_NAME}:${IMAGE_TAG_VERSION} \
+ ${COMMAND_TO_EXECUTE} \
+ $@

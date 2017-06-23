@@ -1,0 +1,7 @@
+#!/bin/bash
+VERSION=${DB_PHP_VERSION:=7}
+
+IMAGE_NAME=php \
+IMAGE_TAG_VERSION=${VERSION}-alpine \
+COMMAND_TO_EXECUTE=php \
+.docker_binary_execute $@
