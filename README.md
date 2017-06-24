@@ -37,7 +37,7 @@ You need to modify your `PATH` variable. So open `.bash_rc` or `.bash_profile` o
 PATH=$PATH:{path_to_this_repository}/bin
 ```
 
-> NOTE: For osx users there is a problem with `php`. As OSX comes with preinstalled version of `php` the `php` will not work. There is alias command for you you can call `phpx`.
+> NOTE: For osx users there is a problem with `php`. As OSX comes with preinstalled version of `php` the `php` will not work. There is `run-php` alias command. More info [here](../../tree/docker-for-mac#limitations)
 
 > NOTE 2: There are some limitations with the `Docker for mac` for networking features.
 
