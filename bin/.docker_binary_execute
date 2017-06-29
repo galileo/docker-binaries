@@ -1,4 +1,5 @@
 #!/bin/sh
+#set -x #echo on # DEBUG
 set -e
 
 IMAGE_TAG_VERSION=${IMAGE_TAG_VERSION:=latest}
@@ -9,10 +10,11 @@ docker run -it \
  -v ${PWD}:${PWD} \
  -v /tmp/:/tmp/ \
  -w ${PWD} \
+ --user=$(id -u) \
  --net=host \
  --sig-proxy=true \
  --pid=host \
  --rm \
  ${IMAGE_NAME}:${IMAGE_TAG_VERSION} \
  ${COMMAND_TO_EXECUTE} \
- "$@"
+ $@

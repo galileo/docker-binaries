@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+set -x #echo on
+
+VERSION=lates
+DEFAULT_DISTRIBUTION=${DB_DISTRIBUTION:=t}
+
+IMAGE_NAME=alpine \
+IMAGE_TAG_VERSION=${VERSION}${DEFAULT_DISTRIBUTION} \
+COMMAND_TO_EXECUTE=sh \
+.docker_binary_execute $@
