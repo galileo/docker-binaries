@@ -17,4 +17,4 @@ docker run -it \
  --rm \
  ${IMAGE_NAME}:${IMAGE_TAG_VERSION} \
  ${COMMAND_TO_EXECUTE} \
- $@
+ "$@"
