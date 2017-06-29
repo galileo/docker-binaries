@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 set -e
 
 VERSION=${DB_NODE_VERSION:=6}
