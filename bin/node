@@ -7,4 +7,4 @@ DEFAULT_DISTRIBUTION=${DB_DISTRIBUTION:=-alpine}
 IMAGE_NAME=node \
 IMAGE_TAG_VERSION=${VERSION}${DEFAULT_DISTRIBUTION} \
 COMMAND_TO_EXECUTE=node \
-.docker_binary_execute $@
+.docker_binary_execute "$@"
