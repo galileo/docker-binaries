@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+set -e
 
 IMAGE_TAG_VERSION=${IMAGE_TAG_VERSION:=latest}
 
@@ -14,4 +15,4 @@ docker run -it \
  --rm \
  ${IMAGE_NAME}:${IMAGE_TAG_VERSION} \
  ${COMMAND_TO_EXECUTE} \
- $@
+ "$@"
