@@ -1,3 +1,10 @@
+# OSX Limitations
+
+There are some limitations in `networking` for `Docker fo mac` so we can not utilize full functionality of `--net="host"` command on top of that we are exporting some of the most common ports from container to the host machine
+
+**Ports exposed**
+80, 443, 3000, 3306, 3307, 3308, 8000, 8001, 8002, 8080, 9000
+
 # Run commands without installing them
 
 Simple way to run any executedble without installing it on your host machine.
