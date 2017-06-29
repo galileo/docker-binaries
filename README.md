@@ -17,9 +17,9 @@ Docker Engine
 
 ## Supported operating systems
 
-- all unixes with kernel over [`master` branch]
-- Docker for mac ( [`docker-for-mac`](../../tree/docker-for-mac) branch )
-- Docker for mac edge [`docker-for-mac-edge` branch]
+- All unixes with kernel over 3.10
+- Docker for mac
+- Docker for mac edge
 
 ## Supported commands
 
@@ -74,8 +74,21 @@ For each supported command there is equivalent of DockerBinary environment varia
 
 ## Using environemnt variables
 
+Run latest `node.js` version for different relase:
+
 ```
-TBD
+DB_NODE_VERSION=7 node -v
+> v7.10.0
+
+DB_NODE_VERSION=8 node -v
+> v8.1.2
+```
+
+Run very speficic `node.js` release:
+
+```
+DB_NODE_VERSION=8.0.0 node -v
+> v8.0.0
 ```
 
 # Resources

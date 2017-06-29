@@ -1,4 +1,6 @@
-#!/bin/bash 
+#!/usr/bin/env sh
+set -e
+
 VERSION=${DB_NODE_VERSION:=6}
 DEFAULT_DISTRIBUTION=${DB_DISTRIBUTION:=-alpine}
 
