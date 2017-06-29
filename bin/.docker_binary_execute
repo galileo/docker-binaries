@@ -3,15 +3,27 @@
 set -e
 
 IMAGE_TAG_VERSION=${IMAGE_TAG_VERSION:=latest}
+DOCKER_USER=""
 
 # "$(uname)" == "Darwin"
 # "$(expr substr $(uname -s) 1 5)" == "Linux"
 # "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT"
 if [ "$(uname)" == "Darwin" ]
 then
-  DOCKER_NETWORKING="-p 80:80"
+  DOCKER_NETWORKING="\
+  -p 80:80 \
+  -p 3000:3000 \
+  -p 3306:3306 \
+  -p 3307:3307 \
+  -p 3308:3308 \
+  -p 8000:8000 \
+  -p 8001:8001 \
+  -p 8002:8002 \
+  -p 8080:8080 \
+  -p 9000:9000"
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]
 then
+  DOCKER_USER="--user=$(id -u)"
   DOCKER_NETWORKING=--net=host
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]
 then
@@ -29,18 +41,8 @@ docker run -it \
  -v ${PWD}:${PWD} \
  -v /tmp/:/tmp/ \
  -w ${PWD} \
- -p 80:80 \
- -p 3000:3000 \
- -p 3306:3306 \
- -p 3307:3307 \
- -p 3308:3308 \
- -p 8000:8000 \
- -p 8001:8001 \
- -p 8002:8002 \
- -p 8080:8080 \
- -p 9000:9000 \
  $DOCKER_NETWORKING \
- --user=$(id -u) \
+ $DOCKER_USER \
  --sig-proxy=true \
  --pid=host \
  --rm \
