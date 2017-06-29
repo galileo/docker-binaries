@@ -1,6 +1,27 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#set -x #echo on # DEBUG
+set -e
 
 IMAGE_TAG_VERSION=${IMAGE_TAG_VERSION:=latest}
+
+# "$(uname)" == "Darwin"
+# "$(expr substr $(uname -s) 1 5)" == "Linux"
+# "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT"
+if [ "$(uname)" == "Darwin" ]
+then
+  DOCKER_NETWORKING="-p 80:80"
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]
+then
+  DOCKER_NETWORKING=--net=host
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]
+then
+  echo "# Todo: Support for WIN 32bit"
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]
+then
+  echo "# Todo: Support for WIN 64bit"
+else
+   echo "None of the condition met"
+fi
 
 docker run -it \
  -v ${HOME}:${HOME} \
@@ -18,9 +39,11 @@ docker run -it \
  -p 8002:8002 \
  -p 8080:8080 \
  -p 9000:9000 \
+ $DOCKER_NETWORKING \
+ --user=$(id -u) \
  --sig-proxy=true \
  --pid=host \
  --rm \
  ${IMAGE_NAME}:${IMAGE_TAG_VERSION} \
  ${COMMAND_TO_EXECUTE} \
- $@
+ "$@"
