@@ -25,7 +25,6 @@ jobs:
 
             node -v
             DB_NODE_VERSION=4 node -v
-            DB_NODE_VERSION=5 node -v
             DB_NODE_VERSION=6 node -v
             DB_NODE_VERSION=7 node -v
             DB_NODE_VERSION=8 node -v
@@ -39,7 +38,6 @@ jobs:
 
             npm -v
             DB_NODE_VERSION=4 npm -v
-            DB_NODE_VERSION=5 npm -v
             DB_NODE_VERSION=6 npm -v
             DB_NODE_VERSION=7 npm -v
             DB_NODE_VERSION=8 npm -v
@@ -53,7 +51,6 @@ jobs:
 
             yarn -v
             DB_NODE_VERSION=4 yarn -v
-            DB_NODE_VERSION=5 yarn -v
             DB_NODE_VERSION=6 yarn -v
             DB_NODE_VERSION=7 yarn -v
             DB_NODE_VERSION=8 yarn -v
