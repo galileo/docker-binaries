@@ -17,3 +17,39 @@ jobs:
             DB_PHP_VERSION=5.6 php -v
             DB_PHP_VERSION=7.0 php -v
             DB_PHP_VERSION=7.1 php -v
+
+      - run:
+          name: Test node commands
+          command: |
+            node -v
+            DB_NODE_VERSION=4 node -v
+            DB_NODE_VERSION=5 node -v
+            DB_NODE_VERSION=6 node -v
+            DB_NODE_VERSION=7 node -v
+            DB_NODE_VERSION=8 node -v
+            DB_NODE_VERSION=8.0.0 node -v
+            DB_NODE_VERSION=8.1.12 node -v
+
+      - run:
+          name: Test npm commands
+          command: |
+            npm -v
+            DB_NODE_VERSION=4 npm -v
+            DB_NODE_VERSION=5 npm -v
+            DB_NODE_VERSION=6 npm -v
+            DB_NODE_VERSION=7 npm -v
+            DB_NODE_VERSION=8 npm -v
+            DB_NODE_VERSION=8.0.0 npm -v
+            DB_NODE_VERSION=8.1.12 npm -v
+
+      - run:
+          name: Test yarn commands
+          command: |
+            yarn -v
+            DB_NODE_VERSION=4 yarn -v
+            DB_NODE_VERSION=5 yarn -v
+            DB_NODE_VERSION=6 yarn -v
+            DB_NODE_VERSION=7 yarn -v
+            DB_NODE_VERSION=8 yarn -v
+            DB_NODE_VERSION=8.0.0 yarn -v
+            DB_NODE_VERSION=8.1.12 yarn -v
