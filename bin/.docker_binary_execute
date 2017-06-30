@@ -10,17 +10,22 @@ DOCKER_USER=""
 # "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT"
 if [ "$(uname)" == "Darwin" ]
 then
-  DOCKER_NETWORKING="\
-  -p 80:80 \
-  -p 3000:3000 \
-  -p 3306:3306 \
-  -p 3307:3307 \
-  -p 3308:3308 \
-  -p 8000:8000 \
-  -p 8001:8001 \
-  -p 8002:8002 \
-  -p 8080:8080 \
-  -p 9000:9000"
+  if [ $FORCED_PORTS = ""] 
+  then
+    DOCKER_NETWORKING="\
+    -p 80:80 \
+    -p 3000:3000 \
+    -p 3306:3306 \
+    -p 3307:3307 \
+    -p 3308:3308 \
+    -p 8000:8000 \
+    -p 8001:8001 \
+    -p 8002:8002 \
+    -p 8080:8080 \
+    -p 9000:9000"
+  else
+    DOCKER_NETWORKING="-p ${FORCED_PORTS}:${FORCED_PORTS}"
+  fi
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]
 then
   DOCKER_USER="--user=$(id -u)"

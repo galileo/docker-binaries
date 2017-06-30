@@ -1,10 +1,14 @@
 #!/usr/bin/env sh
 set -e
 
+# FORCED_PORTS are osx requied only
+FORCED_PORTS=${DB_EXPOSE_PORTS:=""}
+
 VERSION=${DB_NODE_VERSION:=6}
 DEFAULT_DISTRIBUTION=${DB_DISTRIBUTION:=-alpine}
 
 IMAGE_NAME=node \
+FORCED_PORTS=${FORCED_PORTS} \
 IMAGE_TAG_VERSION=${VERSION}${DEFAULT_DISTRIBUTION} \
 COMMAND_TO_EXECUTE=yarn \
 .docker_binary_execute "$@"

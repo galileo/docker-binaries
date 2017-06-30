@@ -1,10 +1,14 @@
 #!/usr/bin/env sh
 set -e
 
+# FORCED_PORTS are osx requied only
+FORCED_PORTS=${DB_EXPOSE_PORTS:=""}
+
 VERSION=${DB_PHP_VERSION:=7}
 DEFAULT_DISTRIBUTION=${DB_DISTRIBUTION:=-alpine}
 
 IMAGE_NAME=php \
+FORCED_PORTS=${FORCED_PORTS} \
 IMAGE_TAG_VERSION=${VERSION}${DEFAULT_DISTRIBUTION} \
 COMMAND_TO_EXECUTE=php \
 .docker_binary_execute "$@"
