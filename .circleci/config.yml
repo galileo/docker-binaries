@@ -19,7 +19,7 @@ jobs:
             DB_PHP_VERSION=7.1 php -v
 
       - run:
-          name: Test node commands
+          name: Test node.js commands
           command: |
             export PATH=$PATH:/root/app/bin
 
