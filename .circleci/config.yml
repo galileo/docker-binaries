@@ -29,7 +29,9 @@ jobs:
             DB_NODE_VERSION=7 node -v
             DB_NODE_VERSION=8 node -v
             DB_NODE_VERSION=8.0.0 node -v
-            DB_NODE_VERSION=8.1.12 node -v
+            DB_NODE_VERSION=8.1.0 node -v
+            DB_NODE_VERSION=8.1.1 node -v
+            DB_NODE_VERSION=8.1.2 node -v
 
       - run:
           name: Test npm commands
@@ -42,7 +44,9 @@ jobs:
             DB_NODE_VERSION=7 npm -v
             DB_NODE_VERSION=8 npm -v
             DB_NODE_VERSION=8.0.0 npm -v
-            DB_NODE_VERSION=8.1.12 npm -v
+            DB_NODE_VERSION=8.1.0 npm -v
+            DB_NODE_VERSION=8.1.1 npm -v
+            DB_NODE_VERSION=8.1.2 npm -v
 
       - run:
           name: Test yarn commands
@@ -55,4 +59,5 @@ jobs:
             DB_NODE_VERSION=7 yarn -v
             DB_NODE_VERSION=8 yarn -v
             DB_NODE_VERSION=8.0.0 yarn -v
-            DB_NODE_VERSION=8.1.12 yarn -v
+            DB_NODE_VERSION=8.1.0 yarn -v
+            DB_NODE_VERSION=8.1.1 yarn -v
