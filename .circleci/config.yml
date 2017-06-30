@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Setup executable PATH
           command: |
-            echo 'export PATH=/app/bin:$PATH' >> $BASH_ENV
+            export PATH=$PATH:/root/app/bin
             printenv
       - run:
           name: Test PHP commands
