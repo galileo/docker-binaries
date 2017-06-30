@@ -12,7 +12,7 @@ Due to the restrictions related with the OSX networking. We are not able to expo
 The workaround for that is the possiblity to expose specific `ports` in the default `--net=bridge` option. 
 
 
-# Multipele terminal usage
+# Use in multiple terminals
 
 If you will use our plain method calls in many terminal windows you will end up with an error similiar to this:
 
