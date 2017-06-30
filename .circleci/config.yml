@@ -21,6 +21,8 @@ jobs:
       - run:
           name: Test node commands
           command: |
+            export PATH=$PATH:/root/app/bin
+
             node -v
             DB_NODE_VERSION=4 node -v
             DB_NODE_VERSION=5 node -v
@@ -33,6 +35,8 @@ jobs:
       - run:
           name: Test npm commands
           command: |
+            export PATH=$PATH:/root/app/bin
+
             npm -v
             DB_NODE_VERSION=4 npm -v
             DB_NODE_VERSION=5 npm -v
@@ -45,6 +49,8 @@ jobs:
       - run:
           name: Test yarn commands
           command: |
+            export PATH=$PATH:/root/app/bin
+
             yarn -v
             DB_NODE_VERSION=4 yarn -v
             DB_NODE_VERSION=5 yarn -v
