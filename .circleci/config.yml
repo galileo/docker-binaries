@@ -9,15 +9,10 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: Setup executable PATH
-          command: |
-            export PATH=$PATH:/root/app/bin
-            printenv
-            php -v
-      - run:
           name: Test PHP commands
           command: |
-            echo $PATH
+            export PATH=$PATH:/root/app/bin
+
             php -v
             DB_PHP_VERSION=5.6 php -v
             DB_PHP_VERSION=7.0 php -v
