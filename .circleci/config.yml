@@ -16,11 +16,7 @@ jobs:
       - run:
           name: Test PHP commands
           command: |
-            cd /app/bin
-            ls -al
             sh php -v
-            cd ../
-            sh bin/php -v
             DB_PHP_VERSION=5.6 ./php -v
             DB_PHP_VERSION=7.0 ./php -v
             DB_PHP_VERSION=7.1 ./php -v
