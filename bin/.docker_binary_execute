@@ -8,9 +8,9 @@ DOCKER_USER=""
 # "$(uname)" == "Darwin"
 # "$(expr substr $(uname -s) 1 5)" == "Linux"
 # "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT"
-if [ "$(uname)" == "Darwin" ]
+if [ "$(uname)" = "Darwin" ]
 then
-  if [ $FORCED_PORTS = ""] 
+  if [ "$FORCED_PORTS" = "" ]
   then
     DOCKER_NETWORKING="\
     -p 80:80 \
@@ -26,31 +26,32 @@ then
   else
     DOCKER_NETWORKING="-p ${FORCED_PORTS}:${FORCED_PORTS}"
   fi
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]
+elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]
 then
+  echo " >>> Executed at '$(uname -s)' host machine"
   DOCKER_USER="--user=$(id -u)"
   DOCKER_NETWORKING=--net=host
-elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]
+elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]
 then
   echo "# Todo: Support for WIN 32bit"
-elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]
+elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW64_NT" ]
 then
   echo "# Todo: Support for WIN 64bit"
 else
    echo "None of the condition met"
 fi
 
-docker run -it \
- -v ${HOME}:${HOME} \
- -v ${HOME}:/root \
- -v ${PWD}:${PWD} \
+docker run -i \
+ -v "${HOME}":"${HOME}" \
+ -v "${HOME}":/root \
+ -v "${PWD}":"${PWD}" \
  -v /tmp/:/tmp/ \
- -w ${PWD} \
- $DOCKER_NETWORKING \
- $DOCKER_USER \
+ -w "${PWD}" \
+ "$DOCKER_NETWORKING" \
+ "$DOCKER_USER" \
  --sig-proxy=true \
  --pid=host \
  --rm \
- ${IMAGE_NAME}:${IMAGE_TAG_VERSION} \
- ${COMMAND_TO_EXECUTE} \
+ "${IMAGE_NAME}":"${IMAGE_TAG_VERSION}" \
+ "${COMMAND_TO_EXECUTE}" \
  "$@"
