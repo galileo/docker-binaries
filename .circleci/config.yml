@@ -61,3 +61,11 @@ jobs:
             DB_NODE_VERSION=8.0.0 yarn -v
             DB_NODE_VERSION=8.1.0 yarn -v
             DB_NODE_VERSION=8.1.1 yarn -v
+      - run:
+          name: Test PHP Composer commands
+          command: |
+            export PATH=$PATH:/root/app/bin
+
+            composer -v
+            DB_COMPOSER=1.5 composer -v
+            DB_COMPOSER=1.4 composer -v
