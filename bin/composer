@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+set -e
+
+# FORCED_PORTS are osx requied only
+FORCED_PORTS=${DB_EXPOSE_PORTS:=""}
+
+VERSION=${DB_COMPOSER_VERSION:=latest}
+
+IMAGE_NAME=composer \
+FORCED_PORTS=${FORCED_PORTS} \
+IMAGE_TAG_VERSION=${VERSION} \
+COMMAND_TO_EXECUTE=composer \
+.docker_binary_execute "$@"

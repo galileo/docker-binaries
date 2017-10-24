@@ -23,6 +23,7 @@ For OSX limitations and workaround go to [OSX Doc](OSX.md)
 - `npm`
 - `yarn`
 - `php`
+- `composer`
 
 # Installation
 
@@ -57,7 +58,7 @@ You need to unistall your existing installations of commands that we provide you
 You can now run each of our commands.
 
 ```bash
-npm -v && node -v && yarn -v && php -v
+npm -v && node -v && yarn -v && php -v && composer -v
 ```
 
 # Version swtich
