@@ -28,7 +28,7 @@ then
   fi
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]
 then
-  echo " >>> Executed at '$(uname -s)' host machine"
+  echo " >>> Executed in container at '$(uname -s)' host machine"
   DOCKER_USER="--user=$(id -u)"
   DOCKER_NETWORKING=--net=host
 elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]
@@ -41,7 +41,15 @@ else
    echo "None of the condition met"
 fi
 
-docker run -i \
+if [ "$TTY" = "" ]
+  then
+    TTY="-i"
+  else
+    TTY="-it"
+fi
+
+docker run \
+ "$TTY" \
  -v "${HOME}":"${HOME}" \
  -v "${HOME}":/root \
  -v "${PWD}":"${PWD}" \

@@ -88,6 +88,20 @@ DB_NODE_VERSION=8.0.0 node -v
 > v8.0.0
 ```
 
+## Enabling the TTY mode
+
+In some cases you need to interact with command. Like for example giving answers on `yarn init` command.
+
+```
+error An unexpected error occurred: "Can't answer a question unless a user TTY".
+```
+
+You can enable the TTY option with the environment settings:
+
+```
+TTY=enable yarn init
+```
+
 # Resources
 
 Article about how you can setup your own repository and how to install this one.
